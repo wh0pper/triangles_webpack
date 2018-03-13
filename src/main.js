@@ -12,7 +12,10 @@ $(document).ready(function() {
     var side3 = parseInt($("input#length3").val());
 
     var triangle = new Triangle(side1, side2, side3);
-    if (triangle.equilateral()) {
+    if (triangle.isTriangle() === false){
+      $(".result1").text("This is not a triangle :-(");
+    }
+    else if (triangle.equilateral()) {
       $(".result1").text("This is an equilateral triangle");
     }
     else if(triangle.isosceles()) {
@@ -20,9 +23,6 @@ $(document).ready(function() {
     }
     else if (triangle.scalene()) {
       $(".result1").text("This is an scalene triangle");
-    }
-    else if (!triangle.isTriangle){
-      $(".result1").text("This is not a triangle :-(");
     }
 
     event.preventDefault();
